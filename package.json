@@ -32,7 +32,13 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "2.1.4",
-    "typescript": "2.3.4"
+    "@types/underscore": "^1.8.2",
+    "meteor-typings": "^1.4.1",
+    "typescript": "2.3.4",
+    "typescript-extends": "^1.0.1"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "config": {
+    "ionic_webpack": "./webpack.config.js"
+  }
 }
