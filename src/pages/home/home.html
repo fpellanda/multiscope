@@ -1,14 +1,37 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Multi Scope
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content padding overflow-scroll="true">
+
+  <div *ngIf="!selectedSign">
+    <ion-title>signs</ion-title>
+    <ion-list>
+      <ion-item *ngFor="let sign of signs | async" (click)="selectSign(sign._id)">
+        {{ sign.name.de }}
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div *ngIf="selectedSign">
+    <ion-title>{{ selectedSign.name.de }}</ion-title>
+    <button ion-button (click)="unselectSign()" >Unselect Sign</button>
+
+    <ion-title>Horoscopes</ion-title>
+    <ion-card *ngFor="let horoscope of horoscopes | async">
+      <ion-card-title>{{ horoscope.feedId }}</ion-card-title>
+      <ion-card-content [innerHtml]="horoscope.text"></ion-card-content>
+    </ion-card>
+  </div>
+
+  <ion-title>Feeds</ion-title>
+  <ion-list>
+    <ion-item *ngFor="let feed of feeds | async">
+      {{ feed._id }} {{ feed.url }}
+    </ion-item>
+  </ion-list>
 </ion-content>
