@@ -1,0 +1,11 @@
+<!-- Generated template for the SignsComponent component -->
+<div>
+  {{text}}
+</div>
+
+<ion-title>signs</ion-title>
+<ion-list>
+  <ion-item *ngFor="let sign of signs | async" (click)="selectSign(sign)">
+    {{ sign.name.de }}
+  </ion-item>
+</ion-list>

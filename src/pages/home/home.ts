@@ -17,7 +17,6 @@ import { MeteorObservable } from 'meteor-rxjs';
 })
 export class HomePage {
   feeds;
-  signs;
   selectedSign: Sign;
 
   constructor(public navCtrl: NavController) {
@@ -25,11 +24,10 @@ export class HomePage {
 
   ngOnInit() {
     this.feeds = Feeds.find({}).zone()
-    this.signs = Signs.find({}).zone()
   }
 
-  selectSign(signId: string) {
-    this.selectedSign = Signs.findOne({_id: signId});
+  selectSign(sign: Sign) {
+    this.selectedSign = sign;
   }
 
   unselectSign() {
