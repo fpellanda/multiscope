@@ -6,8 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { HoroscopesComponent } from '../components/horoscopes/horoscopes'
-import { SignsComponent } from '../components/signs/signs'
+import { HoroscopesComponent, SignsComponent } from '../components';
 import { SignsService, HoroscopesService } from '../services';
 
 @NgModule({
