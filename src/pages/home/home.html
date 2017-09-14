@@ -13,13 +13,6 @@
 
   <div *ngIf="selectedSign">
     <horoscopes [sign]="selectedSign"></horoscopes>
-    <button ion-button (click)="unselectSign()" >Unselect Sign</button>
+    <button ion-button icon-only block (click)="unselectSign()" ><ion-icon name="arrow-back"></ion-icon></button>
   </div>
-
-  <ion-title>Feeds</ion-title>
-  <ion-list>
-    <ion-item *ngFor="let feed of feeds | async">
-      {{ feed._id }} {{ feed.url }}
-    </ion-item>
-  </ion-list>
 </ion-content>

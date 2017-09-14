@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { HoroscopesComponent } from '../components/horoscopes/horoscopes'
 import { SignsComponent } from '../components/signs/signs'
+import { SignsService, HoroscopesService } from '../services';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,8 @@ import { SignsComponent } from '../components/signs/signs'
   providers: [
     StatusBar,
     SplashScreen,
+    SignsService,
+    HoroscopesService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

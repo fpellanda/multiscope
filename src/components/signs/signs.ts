@@ -1,25 +1,21 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Sign } from 'api/models';
 import { Signs } from 'api/collections'
+import { SignsService } from '../../services'
+import { Observable } from 'rxjs'
 
-/**
- * Generated class for the SignsComponent component.
- *
- * See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
- * for more info on Angular Components.
- */
 @Component({
   selector: 'signs',
   templateUrl: 'signs.html'
 })
 export class SignsComponent {
   @Output() select: EventEmitter<Sign> = new EventEmitter<Sign>();
-  signs;
 
-  constructor() { }
+  constructor(private signsService: SignsService ) { }
+  allSigns: Observable<Sign[]>;
 
   ngOnInit() {
-    this.signs = Signs.find({}).zone()
+    this.allSigns = this.signsService.all();
   }
 
   selectSign(sign: Sign) {

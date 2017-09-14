@@ -1,8 +1,6 @@
-<div>
-  <ion-title>{{ sign.name.de }}</ion-title>
+<ion-title>{{ sign.name.de }}</ion-title>
 
-  <ion-card *ngFor="let horoscope of horoscopes | async">
-    <ion-card-title>{{ horoscope.feedId }}</ion-card-title>
-    <ion-card-content [innerHtml]="horoscope.text"></ion-card-content>
-  </ion-card>
-</div>
+<ion-card *ngFor="let horoscope of horoscopes | async">
+  <ion-card-header>{{ feedForHoroscope(horoscope).name }}</ion-card-header>
+  <ion-card-content [innerHtml]="horoscope.text"></ion-card-content>
+</ion-card>

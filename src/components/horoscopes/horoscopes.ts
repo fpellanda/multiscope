@@ -1,29 +1,24 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MeteorObservable, ObservableCursor } from 'meteor-rxjs';
-import { Horoscopes } from 'api/collections';
+import { Horoscopes, Feeds } from 'api/collections';
 import { Sign, Horoscope } from 'api/models';
+import { HoroscopesService } from '../../services';
+import { Observable } from 'rxjs'
 
-/**
- * Generated class for the HoroscopesComponent component.
- *
- * See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
- * for more info on Angular Components.
- */
 @Component({
   selector: 'horoscopes',
   templateUrl: 'horoscopes.html'
 })
 export class HoroscopesComponent implements OnInit {
   @Input('sign') sign:Sign;
-  private horoscopes: ObservableCursor<Horoscope>;
+  private horoscopes: Observable<Horoscope[]>;
 
-  constructor() {}
+  constructor(private horoscopesService: HoroscopesService) {}
 
   ngOnInit() {
-    console.log(this.sign._id)
-    MeteorObservable.subscribe("horoscopesForSign", this.sign._id).subscribe(() => {
-      this.horoscopes = Horoscopes.find({ signId: this.sign._id })
-    })
+    this.horoscopes = this.horoscopesService.find(this.sign);
   }
 
+  feedForHoroscope(horoscope: Horoscope) {
+    return Feeds.findOne({ _id: horoscope.feedId });
+  }
 }

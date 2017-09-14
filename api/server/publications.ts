@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Horoscope, Feed } from './models';
-import { Horoscopes, Feeds } from './collections';
+import { Horoscopes, Feeds, Signs } from './collections';
 import { FeedFetcher } from '../imports/feed_fetcher';
 
 Meteor.publishComposite("horoscopesForSign", function(signId: string): PublishCompositeConfig<Horoscope>  {
@@ -18,4 +18,8 @@ Meteor.publishComposite("horoscopesForSign", function(signId: string): PublishCo
       }
     ]
   }
+})
+
+Meteor.publish("signs", () => {
+  return Signs.find({});
 })
