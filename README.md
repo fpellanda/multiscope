@@ -1,3 +1,28 @@
+# Angular2 Learning Project
+
+Ionic app built with Angular2 and Meteor backend. Displays toaday horoscopes fetched from several rss feeds.
+
+Sources:
+* https://angular-meteor.com
+* https://ionicframework.com
+* https://www.meteor.com
+
+## Development
+
+```
+npm install -g cordova ionic
+npm install
+
+# start ionic
+ionic serve
+
+# run meteor server
+cd api
+meteor
+```
+
+
+# Original Content
 This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
 
 ## How to use this template
