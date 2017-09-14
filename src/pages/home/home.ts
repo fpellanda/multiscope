@@ -1,22 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Feeds, Signs, Horoscopes } from 'api/collections';
+import { Feeds, Signs } from 'api/collections';
 import { Sign } from 'api/models';
 import { MeteorObservable } from 'meteor-rxjs';
 
+/*
 (<any>window).Feeds = Feeds;
 (<any>window).Horoscopes = Horoscopes;
 (<any>window).Signs = Signs;
+*/
 // import { Observable } from 'rxjs';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
 })
 export class HomePage {
   feeds;
   signs;
-  horoscopes;
   selectedSign: Sign;
 
   constructor(public navCtrl: NavController) {
@@ -29,11 +30,6 @@ export class HomePage {
 
   selectSign(signId: string) {
     this.selectedSign = Signs.findOne({_id: signId});
-    MeteorObservable.subscribe("horoscopesForSign", signId).subscribe(() => {
-      console.log('horoscopes ready')
-      this.horoscopes = Horoscopes.find({ signId: signId })
-    })
-    console.log(this.horoscopes)
   }
 
   unselectSign() {

@@ -9,6 +9,7 @@ export interface Translation {
   en: string;
   de: string;
 }
+
 export interface Sign {
   _id?: string;
   name: Translation;

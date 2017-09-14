@@ -12,15 +12,21 @@ Meteor.startup(() => {
     // });
     // http://www.t-online.de/leben/horoskop/id_12898094/tageshoroskop-fuer-ihr-sternzeichen-taeglich-neu-im-rss-feed.html
     Feeds.insert({
-      name: "Overview",
+      name: "T-Online",
       language: "de",
       url: "http://horoskop.t-online.de/xml/rss2.php"
     });
     Feeds.insert({
-      name: "Overview",
+      name: "Kostenloshoroskop",
       language: "de",
       url: "http://www.kostenlosehoroskop.de/feed/"
     });
+    // http://www.rss-verzeichnis.net/index.php?seite=vorschau&LNr=2951
+    /*Feeds.insert({
+      name: "Horoskop Wissen",
+      language: "de",
+      url: "http://www.horoskop-wissen.de/rssfeed/rss_meldungen.rss"
+    }); */
     // feedlist https://www.astrology.com/rss.html
     Feeds.insert({
       name: "Overview",

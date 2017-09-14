@@ -7,7 +7,6 @@
 </ion-header>
 
 <ion-content padding overflow-scroll="true">
-
   <div *ngIf="!selectedSign">
     <ion-title>signs</ion-title>
     <ion-list>
@@ -18,14 +17,8 @@
   </div>
 
   <div *ngIf="selectedSign">
-    <ion-title>{{ selectedSign.name.de }}</ion-title>
+    <horoscopes [sign]="selectedSign"></horoscopes>
     <button ion-button (click)="unselectSign()" >Unselect Sign</button>
-
-    <ion-title>Horoscopes</ion-title>
-    <ion-card *ngFor="let horoscope of horoscopes | async">
-      <ion-card-title>{{ horoscope.feedId }}</ion-card-title>
-      <ion-card-content [innerHtml]="horoscope.text"></ion-card-content>
-    </ion-card>
   </div>
 
   <ion-title>Feeds</ion-title>

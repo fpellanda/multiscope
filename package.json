@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "2.1.4",
+    "@types/meteor-publish-composite": "0.0.32",
     "@types/underscore": "^1.8.2",
     "meteor-typings": "^1.4.1",
     "typescript": "2.3.4",
